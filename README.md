@@ -72,18 +72,26 @@ Cada serviço possui seu próprio pool de threads isolado, demonstrando como o B
 <dependencies>
     <dependency>
         <groupId>io.github.resilience4j</groupId>
-        <artifactId>resilience4j-bulkhead</artifactId>
-        <version>2.0.2</version>
+        <artifactId>resilience4j-all</artifactId>
+        <version>2.3.0</version>
     </dependency>
+
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.18.24</version>
+        <version>1.18.38</version>
+        <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>2.0.17</version>
     </dependency>
     <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>1.4.7</version>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.17</version>
     </dependency>
 </dependencies>
 ```
@@ -92,9 +100,10 @@ Cada serviço possui seu próprio pool de threads isolado, demonstrando como o B
 
 ```gradle
 dependencies {
-    implementation 'io.github.resilience4j:resilience4j-bulkhead:2.0.2'
-    implementation 'org.projectlombok:lombok:1.18.24'
-    implementation 'ch.qos.logback:logback-classic:1.4.7'
+    implementation 'io.github.resilience4j:resilience4j-all:2.3.0'
+    providedCompile 'org.projectlombok:lombok:1.18.38'
+    implementation 'org.slf4j:slf4j-api:2.0.17'
+    implementation 'org.slf4j:slf4j-simple:2.0.17'
 }
 ```
 
@@ -104,8 +113,8 @@ dependencies {
 
 ```bash
 # Clonando o repositório
-git clone https://github.com/seu-usuario/bulkhead-demo.git
-cd bulkhead-demo
+git clone https://github.com/wallanpsantos/demo-resilience4j-pattern-bulkhead.git
+cd demo-resilience4j-pattern-bulkhead
 
 # Compilando e executando
 mvn compile exec:java -Dexec.mainClass="org.example.BulkheadDemo"
@@ -311,8 +320,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ---
 
-[//]: # ()
-[//]: # (⭐ **Se este projeto foi útil, deixe uma estrela!** ⭐)
+⭐ **Se este projeto foi útil, deixe uma estrela!** ⭐
 
 [//]: # ()
 [//]: # (📧 **Dúvidas ou sugestões?** Abra uma [issue]&#40;https://github.com/seu-usuario/bulkhead-demo/issues&#41;)
